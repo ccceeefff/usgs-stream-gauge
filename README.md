@@ -4,7 +4,7 @@ This repo contains the firmware for the USGS LoRa Stream Gauge Sensor.
 
 ## Getting Started
 
-* Before using this repository, make sure to set up the ESP-32 IDF toolchain to properly compile ESP-32 apps.
+* Before using this repository, make sure to set up the ESP-32 IDF toolchain to properly compile ESP-32 apps. (https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html#)
 * Pull down all submodules for this project `git submodule update --init -recursive`
 * Configure the LoRaWAN network keys and device IDs in `app/main/config.h`
 * Compile and flash the app to your device `make flash monitor ESPPORT=<path_to_device>`
