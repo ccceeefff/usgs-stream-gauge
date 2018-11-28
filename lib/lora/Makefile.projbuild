@@ -1,0 +1,21 @@
+## Configurations that should affect project-wide settings
+
+# defines the frequency band to use in compilation
+ifdef CONFIG_LORA_FREQUENCY_USE_915
+CFLAGS += -DUSE_BAND_915
+CPPFLAGS += -DUSE_BAND_915
+endif
+ifdef CONFIG_LORA_FREQUENCY_USE_868
+CFLAGS += -DUSE_BAND_868
+CPPFLAGS += -DUSE_BAND_868
+endif
+
+# selects which radio module to add to compile and header sources
+ifdef CONFIG_LORA_RADIO_MODULE_SX1276
+CFLAGS += -DLORA_RADIO_SX1276
+CPPFLAGS += -DLORA_RADIO_SX1276
+endif
+ifdef CONFIG_LORA_RADIO_MODULE_SX1272
+CFLAGS += -DLORA_RADIO_SX1272
+CPPFLAGS += -DLORA_RADIO_SX1272
+endif

@@ -1,0 +1,10 @@
+build/
+sdkconfig.old
+.DS_Store
+*.h.gch
+.project
+.cproject
+.settings
+.vscode
+make.exe.stackdump
+apps/crossmobile/mag-plotter/tools/traces

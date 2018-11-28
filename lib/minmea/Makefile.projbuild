@@ -1,0 +1,3 @@
+
+# See README.md for info
+CFLAGS += -Dtimegm=mktime

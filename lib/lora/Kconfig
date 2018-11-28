@@ -1,0 +1,30 @@
+menuconfig LORA_ENABLED
+    bool "LoRa"
+    help
+        Select this option to enable LoRa and show the submenu with LoRa configuration choices.
+
+choice LORA_RADIO_MODULE
+    prompt "LoRa Radio Module Driver to add"
+    depends on LORA_ENABLED
+    default LORA_RADIO_MODULE_SX1276
+    help
+        Selects the proper driver for the LoRa Radio module available for your board.
+
+config LORA_RADIO_MODULE_SX1272
+    bool "Sx1272"
+config LORA_RADIO_MODULE_SX1276
+    bool "Sx1276"
+endchoice
+
+choice LORA_FREQUENCY
+    prompt "LoRaWAN Frequency Band Allocation"
+    depends on LORA_ENABLED
+    default LORA_FREQUENCY_USE_915
+    help
+        Selects the band to use for frequency allocation.
+
+config LORA_FREQUENCY_USE_915
+    bool "US_915"
+config LORA_FREQUENCY_USE_868
+    bool "EU_868"
+endchoice
