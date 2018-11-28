@@ -109,7 +109,7 @@ void board_init(void){
   BoardInitPeriph( );
 
   LoRaNetworkSettings_t settings = {
-    .otaa = 1,
+    .otaa = LORA_JOIN_METHOD,
     .publicNetwork = 1,
     .adrEnable = 1,
     .defaultDataRate = 3,   // not currently used
@@ -118,11 +118,18 @@ void board_init(void){
     .fsbMask = (1<<(LORA_FSB-1)),      // fsb1
     .networkID = 0,
     .deviceID = 0,
-    .ota = {
-      .devEUI = DEVICE_EUI,
-      .appEUI = APP_EUI,
-      .appKey = APP_KEY
-    },
+#if (LORA_JOIN_METHOD == LORA_OTAA)
+      .ota = {
+        .devEUI = DEVICE_EUI,
+        .appEUI = APP_EUI,
+        .appKey = APP_KEY
+      },
+#else
+      .abp = {
+        .networkSessionKey = NETWORK_SESSION_KEY,
+        .appSessionKey = APPLICATION_SESSION_KEY
+      },
+#endif
   };
 
   lora_network_init(&settings, 12);
